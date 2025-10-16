@@ -3,22 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
+    <title>Todo List - Dzaky</title>
 
     <!-- External CSS Link -->
     <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
-    <!-- Header Section -->
-    <header></header>
+</head>
+<body class="font-mono flex flex-col justify-center items-center bg-gray-500 min-h-screen">
+    
+    
+    <div class="container bg-gray-300 p-5 rounded-lg max-w-xl">
+        <!-- Header Section -->
+        <header class="">
+        <h1 class="flex justify-center p-5 text-4xl text-shadow-lg">Todo List</h1>
+
+        <div class="bg-gray-200 p-5 rounded-lg flex gap-8">
+
+        <input type="text" class="bg-gray-100 p-2 rounded-lg" 
+        id="new-task-input" placeholder="Add a new task...">
+
+        <input type="date" class="bg-gray-100 p-2 rounded-lg" id="new-task-date">
+
+        <button class="bg-gray-100 p-2 rounded-lg w-10" id="add-task-button">+</button>
+        </div>
+
+    </header>
 
     <!-- Main Content Section -->
-    <main></main>
+    <main>
+        <div class="flex justify-between py-5">
+            <button class="bg-blue-500 p-3 rounded-lg text-white" id="filter">Filter</button>
+            <button class="bg-red-500 p-3 rounded-lg text-white" id="delete-all-btn">Delete All</button>
+        </div>
+        <div class="rounded-lg p-5 bg-gray-100">
+            <table class=" table-fixed w-full border-collapse border border-slate-400">
+                <thead>
+                    <tr>
+                        <th class="border border-slate-300 p-2">Task</th>
+                        <th class="border border-slate-300 p-2">Due Date</th>
+                        <th class="border border-slate-300 p-2">Status</th>
+                        <th class="border border-slate-300 p-2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="task-table-body">
+                    <!-- Tasks will be dynamically added here -->
+                     <tr>
+                        <td class="p-5 text-center border border-slate-300" colspan="4">
+                            <p>No Task Found</p>
+                        </td>
+                     </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </main>
 
     <!-- Footer Section -->
     <footer></footer>
 
+    </div>
+    
     <script src="js/script.js"></script>
 </body>
 </html>
