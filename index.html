@@ -15,20 +15,21 @@
 <body class="font-mono flex flex-col justify-center items-center bg-gray-500 min-h-screen">
     
     
-    <div class="container bg-gray-200 p-5 rounded-lg max-w-xl">
+    <div class="container bg-gray-200 p-5 rounded-2xl max-w-2xl">
         <!-- Header Section -->
         <header class="">
         <h1 class="flex justify-center p-5 text-4xl text-shadow-lg">Todo List</h1>
 
-        <div class="bg-gray-200 p-5 rounded-lg flex gap-8">
-        <form id="add-task-form" class="flex gap-8 items-center" onsubmit="event.preventDefault()">
+        <div class="bg-gray-200 py-5 rounded-lg flex justify-center">
+        <form id="add-task-form" class="flex gap-19" onsubmit="event.preventDefault()">
             <label for="new-task-input" class="sr-only">Task</label>
             <input type="text" id="task-input" class="bg-gray-100 p-2 rounded-lg shadow-xl" placeholder="Add a new task..." aria-label="Task">
 
             <label for="new-task-date" class="sr-only">Due date</label>
             <input type="date" id="new-task-date" class="cursor-pointer bg-gray-100 p-2 rounded-lg shadow-xl" aria-label="Due date">
 
-            <button type="submit" id="add-task-btn" class="cursor-pointer bg-gray-100 p-2 rounded-lg w-10 shadow-xl hover:bg-gray-300">+</button>
+
+            <button type="submit" id="add-task-form" class="cursor-pointer bg-green-500 text-white p-2 rounded-lg w-full shadow-xl hover:bg-green-600">Add Task</button>
         </form>
          </div>
 
@@ -37,7 +38,14 @@
     <!-- Main Content Section -->
     <main>
         <div class="flex justify-between py-5">
-            <button type="button" class="cursor-pointer bg-blue-500 p-3 rounded-lg text-white shadow-xl hover:bg-blue-600" id="filter">Filter</button>
+            <select id="status-filter-select" class="cursor-pointer bg-blue-500 text-white p-3 rounded-lg shadow-xl hover:bg-blue-600">
+                <option value="">Show All</option>
+                <option value="Pending">Show Pending</option>
+                <option value="Completed">Show Completed</option>
+                <option value="sort-az">Sort A → Z</option>
+                <option value="sort-za">Sort Z → A</option>
+            </select>
+
             <button type="button" class="cursor-pointer bg-red-500 p-3 rounded-lg text-white shadow-xl hover:bg-red-600" id="delete-all-btn">Delete All</button>
         </div>
             <table class="table-fixed w-full border-collapse border border-slate-400 shadow-xl" aria-label="Todo list">
@@ -53,7 +61,7 @@
                 <tbody id="task-table-body">
                     <!-- Tasks will be dynamically added here -->
                      <tr id="table-row-task">
-                        <td class="p-5 text-center border border-slate-300"  id="no-task" colspan="4">
+                        <td class="border border-slate-300 p-2 text-center text-gray-500"  id="no-task" colspan="4">
                             <p>No Task Found</p>
                         </td>
                      </tr>
