@@ -15,49 +15,51 @@
 <body class="font-mono flex flex-col justify-center items-center bg-gray-500 min-h-screen">
     
     
-    <div class="container bg-gray-300 p-5 rounded-lg max-w-xl">
+    <div class="container bg-gray-200 p-5 rounded-lg max-w-xl">
         <!-- Header Section -->
         <header class="">
         <h1 class="flex justify-center p-5 text-4xl text-shadow-lg">Todo List</h1>
 
         <div class="bg-gray-200 p-5 rounded-lg flex gap-8">
+        <form id="add-task-form" class="flex gap-8 items-center" onsubmit="event.preventDefault()">
+            <label for="new-task-input" class="sr-only">Task</label>
+            <input type="text" id="task-input" class="bg-gray-100 p-2 rounded-lg shadow-xl" placeholder="Add a new task..." aria-label="Task">
 
-        <input type="text" class="bg-gray-100 p-2 rounded-lg" 
-        id="new-task-input" placeholder="Add a new task...">
+            <label for="new-task-date" class="sr-only">Due date</label>
+            <input type="date" id="new-task-date" class="cursor-pointer bg-gray-100 p-2 rounded-lg shadow-xl" aria-label="Due date">
 
-        <input type="date" class="bg-gray-100 p-2 rounded-lg" id="new-task-date">
-
-        <button class="bg-gray-100 p-2 rounded-lg w-10" id="add-task-button">+</button>
-        </div>
+            <button type="submit" id="add-task-btn" class="cursor-pointer bg-gray-100 p-2 rounded-lg w-10 shadow-xl hover:bg-gray-300">+</button>
+        </form>
+         </div>
 
     </header>
 
     <!-- Main Content Section -->
     <main>
         <div class="flex justify-between py-5">
-            <button class="bg-blue-500 p-3 rounded-lg text-white" id="filter">Filter</button>
-            <button class="bg-red-500 p-3 rounded-lg text-white" id="delete-all-btn">Delete All</button>
+            <button type="button" class="cursor-pointer bg-blue-500 p-3 rounded-lg text-white shadow-xl hover:bg-blue-600" id="filter">Filter</button>
+            <button type="button" class="cursor-pointer bg-red-500 p-3 rounded-lg text-white shadow-xl hover:bg-red-600" id="delete-all-btn">Delete All</button>
         </div>
-        <div class="rounded-lg p-5 bg-gray-100">
-            <table class=" table-fixed w-full border-collapse border border-slate-400">
+            <table class="table-fixed w-full border-collapse border border-slate-400 shadow-xl" aria-label="Todo list">
+                <caption class="sr-only">Todo list</caption>
                 <thead>
                     <tr>
-                        <th class="border border-slate-300 p-2">Task</th>
-                        <th class="border border-slate-300 p-2">Due Date</th>
-                        <th class="border border-slate-300 p-2">Status</th>
-                        <th class="border border-slate-300 p-2">Actions</th>
+                        <th scope="col" class="border border-slate-300 p-2">Task</th>
+                        <th scope="col" class="border border-slate-300 p-2">Due Date</th>
+                        <th scope="col" class="border border-slate-300 p-2">Status</th>
+                        <th scope="col" class="border border-slate-300 p-2">Actions</th>
                     </tr>
                 </thead>
                 <tbody id="task-table-body">
                     <!-- Tasks will be dynamically added here -->
-                     <tr>
-                        <td class="p-5 text-center border border-slate-300" colspan="4">
+                     <tr id="table-row-task">
+                        <td class="p-5 text-center border border-slate-300"  id="no-task" colspan="4">
                             <p>No Task Found</p>
                         </td>
                      </tr>
                 </tbody>
             </table>
-        </div>
+        
 
 
     </main>
